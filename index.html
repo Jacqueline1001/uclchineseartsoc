@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仪姝月 - 作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content {
+            max-width: 600px;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #95a5a6;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .about-content h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .about-content .roles {
+            font-size: 1.05rem;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #bdc3c7;
+            margin: 40px 0;
+        }
+
+        .about-content .statement {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #34495e;
+        }
+
+        .about-image {
+            position: relative;
+            height: 550px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Journey Section */
+        .journey-section {
+            background: white;
+            margin-top: 2px;
+        }
+
+        .journey-header {
+            text-align: center;
+            padding: 80px 60px 60px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .journey-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .journey-header .subtitle {
+            font-size: 1rem;
+            color: #95a5a6;
+            letter-spacing: 1px;
+        }
+
+        /* Timeline Layout */
+        .timeline {
+            padding: 60px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Timeline Number */
+        .timeline-number {
+            text-align: right;
+            padding-top: 10px;
+        }
+
+        .timeline-number .number {
+            font-size: 5rem;
+            font-weight: 200;
+            color: #d5d5d5;
+            line-height: 1;
+            display: block;
+        }
+
+        /* Timeline Content */
+        .timeline-content {
+            background: #fafafa;
+            padding: 50px;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 70px;
+            width: 2px;
+            height: calc(100% - 70px);
+            background: linear-gradient(to bottom, #e0e0e0, transparent);
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+        }
+
+        .content-header h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+
+        .content-header .en-title {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .content-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            padding: 15px 0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 35px;
+        }
+
+        .content-body p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: #5a6c7d;
+            margin-bottom: 18px;
+        }
+
+        /* Image Sections */
+        .content-image {
+            margin: 40px 0;
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .grid-layout-1 {
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: repeat(2, 200px);
+        }
+
+        .grid-layout-1 .img-main {
+            grid-row: span 2;
+        }
+
+        .grid-layout-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hypothesis Box */
+        .hypothesis-box {
+            background: white;
+            border-left: 3px solid #3498db;
+            padding: 30px;
+            margin: 35px 0;
+        }
+
+        .hypothesis-box .label {
+            font-size: 0.85rem;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .hypothesis-box p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        /* Discovery Box */
+        .discovery-box {
+            background: white;
+            padding: 30px;
+            margin: 35px 0;
+        }
+
+        .discovery-box h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .discovery-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .discovery-box li {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #5a6c7d;
+        }
+
+        .discovery-box li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #95a5a6;
+        }
+
+        /* Insight Section */
+        .insight-section {
+            background: #f5f7f9;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 2px;
+        }
+
+        .insight-section h4 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .insight-section p {
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 10px;
+        }
+
+        /* Diagram Box */
+        .diagram-box {
+            background: white;
+            padding: 35px;
+            margin: 35px 0;
+            border: 1px solid #e8e8e8;
+            text-align: center;
+        }
+
+        .diagram-box pre {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #5a6c7d;
+            text-align: left;
+            display: inline-block;
+        }
+
+        /* Metrics Cards */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 35px 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+        }
+
+        .metric-card .value {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+
+        .metric-card .label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* Link Button */
+        .link-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: transparent;
+            color: #2c3e50;
+            border: 1px solid #2c3e50;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-btn:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Problem List */
+        .problem-list {
+            margin: 25px 0;
+        }
+
+        .problem-item {
+            margin-bottom: 20px;
+        }
+
+        .problem-item .num {
+            font-weight: 500;
+            color: #3498db;
+            margin-right: 8px;
+        }
+
+        .problem-item .title {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .problem-item .desc {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            padding-left: 24px;
+        }
+
+        /* Solution List */
+        .solution-list {
+            margin: 25px 0;
+        }
+
+        .solution-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #5a6c7d;
+        }
+
+        .solution-list li strong {
+            color: #2c3e50;
+        }
+
+        .solution-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                padding: 60px 40px;
+                gap: 50px;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .timeline {
+                padding: 40px 30px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 80px 1fr;
+                gap: 30px;
+                margin-bottom: 80px;
+            }
+
+            .timeline-number .number {
+                font-size: 3.5rem;
+            }
+
+            .timeline-content {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .journey-header h2 {
+                font-size: 2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline-number {
+                text-align: left;
+            }
+
+            .timeline-content::before {
+                display: none;
+            }
+
+            .content-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .grid-layout-1,
+            .grid-layout-2,
+            .metrics-row {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-layout-1 .img-main {
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="portfolio-tag">PORTFOLIO</div>
+                <h1>仪姝月</h1>
+                <div class="roles">
+                    政治经济学者 × 产品思考者 × 跨文化实践者<br>
+                    Political Economist × Product Strategist × Cross-Cultural Executor
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="statement">
+                    过去5年，我在思考一个问题：<br>
+                    如何让中国的文化和产品，在西方市场找到真实的价值定位。
+                </div>
+                
+                <div class="statement">
+                    从分析中西差异的哲学根源，到通过内容创作探索文化传播，<br>
+                    再到运营160+会员的跨文化社区——我不断用实践探索这个命题。
+                </div>
+                
+                <div class="statement">
+                    现在，我想把这种跨文化洞察和产品思维，<br>
+                    带到中国品牌出海的战略实践中。
+                </div>
+                
+                <a href="#journey" class="cta-button">探索我的旅程 →</a>
+            </div>
+            
+            <div class="about-image">
+                <img src="https://raw.githubusercontent.com/Jacqueline1001/uclchineseartsoc/main/profile.jpg" alt="仪姝月">
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section class="journey-section" id="journey">
+            <div class="journey-header">
+                <h2>从问题到方法论</h2>
+                <p class="subtitle">FROM QUESTION TO METHODOLOGY</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 01 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">
+                        <span class="number">01</span>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <h3>为什么同样的产品，在不同市场需要不同的价值叙事？</h3>
+                            <p class="en-title">THE CORE QUESTION</p>
+                        </div>
+                        
+                        <div class="content-meta">Asiatic Affairs 学术期刊 | 2023.11</div>
+                        
+                        <div class="content-body">
+                            <p>在观察中西方社会差异时，我发现大多数讨论停留在表象——政治制度、经济模式、意识形态。</p>
+                            
+                            <p>但我想理解更深层的问题：<br>
+                            为什么西方用户和中国用户对"价值"的理解如此不同？</p>
+                            
+                            <p>我试图从历史和哲学的源头，寻找答案。</p>
+                        </div>
+                        
+                        <div class="content-image">
+                            <img src="https://raw.githubusercontent.com/Jacqueline1001/uclchineseartsoc/main/capitalism.png" alt="中西方对比研究">
+                        </div>
+                        
+                        <div class="discovery-box">
+                            <h4>核心发现：</h4>
+                            <p>中西方的根本差异，源于不同的哲学基因——<br>
+                            个人主义vs集体主义、契约精神vs关系网络、二元对立vs求同存异。</p>
+                            
+                            <p style="margin-top: 20px;">这些差异不只是学术问题，它们决定了：</p>
+                            <ul>
+                                <li>人们如何定义"价值"</li>
+                                <li>人们如何建立信任</li>
+                                <li>人们如何做出购买决策</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="insight-section">
+                            <p>这个认知，成为我后续所有实践的理论基础。</p>
+                        </div>
+                        
+                        <a href="https://www.asiaticaffairs.org/post/common-wealth-vs-neoliberalism" target="_blank" class="link-btn">阅读完整文章 →</a>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 02 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">
+                        <span class="number">02</span>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <h3>验证假设：如何让东方价值被理解和接受？</h3>
+                            <p class="en-title">VALIDATING THE HYPOTHESIS</p>
+                        </div>
+                        
+                        <div class="content-meta">小红书内容创作</div>
+                        
+                        <div class="content-body">
+                            <p>基于对中西差异的理解，我提出了一个假设：</p>
+                        </div>
+                        
+                        <div class="hypothesis-box">
+                            <div class="label">💡 假设</div>
+                            <p>价值能够被接受，关键在于"重新定义产品价值"——<br>
+                            不是推销"产品本身"，而是提供"用户真正需要的情绪价值"。</p>
+                        </div>
+                        
+                        <div class="content-body">
+                            <p style="font-weight: 500; font-size: 1.05rem; margin-top: 40px;">我用两个实践来验证这个假设：</p>
+                        </div>
+
+                        <!-- Verification 1 -->
+                        <div style="margin-top: 50px;">
+                            <h4 style="font-size: 1.2rem; color: #2c3e50; margin-bottom: 20px;">验证1：内容传播实验</h4>
+                            
+                        <div class="image-grid grid-layout-1">
+        <img class="img-main" src="https://raw.githubusercontent.com/Jacqueline1001/uclchineseartsoc/main/Screenshot%202025-11-10%20at%2010.49.12.png" alt="三色卡片" style="width: 100%; max-width: 800px;">
+    </div>
+                            
+                            <div class="content-body">
+                                <p><strong>背景：</strong><br>
+                                6年前，中国传统哲学帮我走出了迷茫。<br>
+                                这让我开始思考：如何让当代年轻人也能理解和应用这些智慧？</p>
+                                
+                                <p><strong>我发现的机会：</strong></p>
+                            </div>
+                            
+                            <div class="discovery-box">
+                                <ul>
+                                    <li>纯粹的东方哲学太晦涩 → 年轻人读不懂</li>
+                                    <li>西方心理学太学术 → 读完无法实操</li>
+                                    <li>空白地带：针对具体生活问题，用通俗化方式传递传统智慧</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="content-body">
+                                <p><strong>方法：</strong><br>
+                                重新定义产品价值——<br>
+                                不是"教授传统哲学"（用户不需要）<br>
+                                而是"解决焦虑和迷茫"（用户真正需要的）</p>
+                                
+                                <p>通过小红书内容和线下冥想工作坊验证：<br>
+                                年轻人关心的不是"这是什么哲学流派"，<br>
+                                而是"这能帮我解决什么问题"。</p>
+                            </div>
+                            
+                            <div class="insight-section">
+                                <h4>核心洞察：</h4>
+                                <p>产品的价值不在于"理论深度"，<br>
+                                而在于"能解决用户的实际痛点"。</p>
+                                <p style="margin-top: 15px;">这个洞察，后来成为我理解跨文化产品定位的起点。</p>
+                            </div>
+                        </div>
+
+                        <!-- Verification 2 -->
+                        <div style="margin-top: 60px;">
+                            <h4 style="font-size: 1.2rem; color: #2c3e50; margin-bottom: 20px;">验证2：社区运营实验</h4>
+                            
+                            <div class="image-grid grid-layout-2">
+                                <img src="https://raw.githubusercontent.com/Jacqueline1001/uclchineseartsoc/main/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E4%BC%A6%E6%95%A6%E4%B9%A6%E6%B3%95.png" alt="UCL书法社推广">
+                                <img src="https://raw.githubusercontent.com/Jacqueline1001/uclchineseartsoc/main/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.png" alt="书法活动现场">
+                            </div>
+                            
+                            <div class="content-body">
+                                <p><strong>背景：</strong><br>
+                                2023年9月，我接手了UCL已运营5年的水墨社。<br>
+                                之前的模式能保持稳定，但存在结构性问题。</p>
+                                
+                                <p>我用同样的假设去重新定义产品：</p>
+                            </div>
+                            
+                            <div class="diagram-box">
+                                <pre>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+传统思维（关注手段）：
+用户 → 书法课
+      ↑
+   用户想要的是"书法"？
+
+产品思维（关注目的）：
+用户 → 书法课 → 平静 + 连接
+      ↑              ↑
+   这只是手段    这才是真正需求
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                                </pre>
+                            </div>
+                            
+                            <div class="insight-section">
+                                <h4>核心洞察：</h4>
+                                <p>用户购买的不是"中间环节"（书法课本身），<br>
+                                而是"最终结果"（平静和社交连接）。</p>
+                            </div>
+                            
+                            <div class="content-body">
+                                <p><strong>发现的问题：</strong></p>
+                            </div>
+                            
+                            <div class="problem-list">
+                                <div class="problem-item">
+                                    <div class="title"><span class="num">①</span> 费用模式的可持续性危机</div>
+                                    <div class="desc">免费模式吸引了"打卡型"用户，稀释了真正的核心群体</div>
+                                </div>
+                                <div class="problem-item">
+                                    <div class="title"><span class="num">②</span> 产品定位的需求错配</div>
+                                    <div class="desc">我们提供"书法课"，用户需要"情绪价值+社交空间"</div>
+                                </div>
+                            </div>
+                            
+                            <div class="content-body">
+                                <p><strong>解决方案：</strong></p>
+                            </div>
+                            
+                            <ul class="solution-list">
+                                <li><strong>费用：</strong>转为£15会员制，用收入提升质量</li>
+                                <li><strong>定位：</strong>从"书法课"重新定义为"文化体验+社交空间"</li>
+                                <li><strong>受众：</strong>从"中国学生"扩展到"所有对中国文化感兴趣的人"</li>
+                            </ul>
+                            
+                            <div style="margin-top: 35px;">
+                                <p style="font-weight: 500; margin-bottom: 20px;">成果：</p>
+                                <div class="metrics-row">
+                                    <div class="metric-card">
+                                        <div class="value">160+</div>
+                                        <div class="label">付费会员</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="value">35%</div>
+                                        <div class="label">营收增长</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="value">470+</div>
+                                        <div class="label">Instagram粉丝</div>
+                                    </div>
+                                </div>
+                                <p style="text-align: center; color: #7f8c8d; margin-top: 15px;">从松散社群转变为紧密核心群体</p>
+                            </div>
+                            
+                            <div class="insight-section" style="margin-top: 35px;">
+                                <h4>启发：</h4>
+                                <p>这不是社团运营，这是产品思维的实践验证——<br>
+                                理解用户真正需要什么，然后重新定义产品价值。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
